@@ -91,9 +91,9 @@ export default function Component() {
           }}
         />
         <div className="relative z-10 text-left">
-          <div className="mb-2 text-lg tracking-wider">MIYATSU PROJECT 2024</div>
+          <div className="text-[2vw] font-bold mb-2 leading-none">MIYATSU PROJECT 2024</div>
           <FlickerText text="SENSHU-Z" className="text-[10vw] font-bold mb-2 leading-none" />
-          <div className="text-lg">無限に広がるXの先へ。</div>
+          <div className="text-[2vw] font-bold mb-2 leading-none">無限に広がるXの先へ。</div>
         </div>
       </section>
 
@@ -173,9 +173,19 @@ export default function Component() {
       <motion.section className="h-screen relative flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-8">CHALLENGE THE IMPOSSIBLE</h2>
-          <FlickerText text="FINAL PRESENTATION" />
+          <FlickerText text="FINAL PRESENTATION" className="text-[5vw] font-bold" />
         </div>
       </motion.section>
+
+      {/* Page 5 */}
+      <motion.section className="h-screen flex flex-col items-center justify-center bg-black">
+        <h2 className="text-4xl font-bold text-white mb-4">Explore the Active Log</h2>
+        <iframe
+          src="https://docs.craft.do/editor/d/df78fd0b-f354-f962-1d12-144f3b47b3b9/439C1F1E-A738-4A91-81AE-4CF64611FE83?s=W6NcAP3oXvgQ6sRHVTGgo9NTS6iJx66KbpZUh6uBGdhi"
+          title="Craft Embed"
+          className="w-[90%] h-[70vh] border-2 border-white rounded-lg"
+        ></iframe>
+      </motion.section>
     </div>
-  )
+  );
 }
