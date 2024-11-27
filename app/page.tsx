@@ -69,7 +69,7 @@ export default function Component() {
   }
 
   return (
-    <div ref={containerRef} className="h-[400vh] relative overflow-hidden bg-black text-white">
+    <div ref={containerRef} className="h-[1000vh] relative overflow-hidden bg-black text-white">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 mix-blend-difference">
         <span className="text-sm font-medium">MIYATSU PROJECT WEB SITE</span>
         <div className="flex items-center gap-4">
@@ -128,8 +128,46 @@ export default function Component() {
         </motion.div>
       </motion.section>
 
+
+      {/* 3ページ目始まり */}
+      3ページ目
+      <motion.section className="h-screen relative flex items-center justify-center">
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ top: '25%' }}
+        >
+          {/* 下に動画のリンクを挿入する */}
+          <a href="https://shiratama-university.notion.site/620c677db5cd460cb92b0f9ed8d4275f">
+            <motion.div
+              className="w-[35vw] h-[35vw] rounded-full border-4 border-white flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
+            >
+              <motion.div
+                className="w-[32vw] h-[32vw] rounded-full border-4 border-white flex items-center justify-center"
+                whileHover={{ scale: 1.1 }}
+              >
+                <span className="text-white text-2xl">PLAY MOVIE▶︎</span>
+              </motion.div>
+            </motion.div>
+          </a>
+        </div>
+      </motion.section>
+
+
+      <section id="sec-movie" className="appsec on_anim current on_anim_hover flex justify-between items-center">
+        <div className="relative z-10 text-left">
+          <div className="mb-2 text-lg tracking-wider">MIYATSU PROJECT 2024</div>
+          <FlickerText text="PROJECT MOVIE" className="text-[6vw] font-bold mb-2 leading-none" />
+          <div className="text-lg">プロジェクトムービー</div>
+        </div>
+          <div className="relative z-10 text-center text-2xl font-semibold">
+          <span>宮津プロジェクトの活動を動画にまとめました!!!!</span>
+          </div>
+      </section>
+      {/* 3ページ目終わり */}
+
+
       {/* 4ページ目 */}
-      4ページ目
       <HybridScroll />
 
       <motion.section className="h-screen relative flex items-center justify-center">
