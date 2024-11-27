@@ -168,7 +168,6 @@ export default function Component() {
 
 
       {/* 4ページ目 */}
-      4ページ目
       <HybridScroll />
 
       <motion.section className="h-screen relative flex items-center justify-center">
