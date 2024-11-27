@@ -55,14 +55,14 @@ export default function Component() {
   }
 
   const watches = [
-    { name: 'PROMASTER MARINE', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER SKY', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER LAND', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER TOUGH', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER MECHANICAL DIVER', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER AQUALAND', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER ALTICHRON', image: '/placeholder.svg?height=400&width=400' },
-    { name: 'PROMASTER SKYHAWK', image: '/placeholder.svg?height=400&width=400' },
+    { name: 'PROMASTER MARINE', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER SKY', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER LAND', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER TOUGH', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER MECHANICAL DIVER', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER AQUALAND', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER ALTICHRON', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'PROMASTER SKYHAWK', image: 'image/kawasaki.png?height=400&width=400' },
   ]
 
   return (
