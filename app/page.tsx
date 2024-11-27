@@ -68,7 +68,7 @@ export default function Component() {
   return (
     <div ref={containerRef} className="h-[400vh] relative overflow-hidden bg-black text-white">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 mix-blend-difference">
-        <span className="text-sm font-medium">PROMASTER ANNIVERSARY SPECIAL SITE</span>
+        <span className="text-sm font-medium">MIYATSU PROJECT WEB SITE</span>
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon">
             <Globe className="h-5 w-5" />
@@ -88,9 +88,9 @@ export default function Component() {
           }}
         />
         <div className="relative text-center z-10">
-          <div className="mb-4 text-sm tracking-wider">PROMASTER 35th ANNIVERSARY</div>
-          <FlickerText text="GO BEYOND" className="text-[8vw] mb-4" />
-          <div className="text-lg">想像のその先へ。</div>
+          <div className="mb-4 text-sm tracking-wider">MIYATSU PROJECT 2024</div>
+          <FlickerText text="SENSHU-Z" className="text-[8vw] mb-4" />
+          <div className="text-lg">無限に広がるXの先へ。</div>
         </div>
       </section>
 
@@ -114,10 +114,9 @@ export default function Component() {
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.3 }}
         >
-          <motion.h2 className="text-6xl font-bold mb-8" variants={fadeIn}>PROMASTER</motion.h2>
-          <motion.p className="brand-message text-2xl mb-2" variants={fadeIn}>想像のその先へ。</motion.p>
-          <motion.p className="brand-message text-2xl mb-2" variants={fadeIn}>挑戦し続ける、</motion.p>
-          <motion.p className="brand-message text-2xl" variants={fadeIn}>プロフェッショナルギア。</motion.p>
+          <motion.h2 className="text-6xl font-bold mb-8" variants={fadeIn}>CHARMS</motion.h2>
+          <motion.p className="brand-message text-2xl mb-2" variants={fadeIn}>01</motion.p>
+          <motion.p className="brand-message text-2xl mb-2" variants={fadeIn}>ChatGPTを活用した<br></br>AIが必ず応答し、<br></br>迅速かつ具体的に<br></br>質問に答える。</motion.p>
         </motion.div>
       </motion.section>
 
@@ -151,7 +150,7 @@ export default function Component() {
       <motion.section className="h-screen relative flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-8">CHALLENGE THE IMPOSSIBLE</h2>
-          <FlickerText text="PROMASTER" />
+          <FlickerText text="FINAL PRESENTATION" />
         </div>
       </motion.section>
     </div>
