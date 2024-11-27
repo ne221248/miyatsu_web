@@ -33,7 +33,12 @@ export default function Component() {
     offset: ['start start', 'end end']
   })
 
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 })
+  const smoothProgress = useSpring(scrollYProgress, {
+    mass: 0.5,
+    stiffness: 50,
+    damping: 20,
+    restDelta: 0.001,
+  })
 
   const messageTransformX = useTransform(smoothProgress, [0.25, 0.5], ['0%', '50%'])
   const messageTransformY = useTransform(smoothProgress, [0.25, 0.5], ['0%', '50%'])
@@ -60,9 +65,10 @@ export default function Component() {
   ]
   //2ページ目ここまで
 
+  // 縦スクロールが始まるタイミングを遅らせる
   const clipPath = useTransform(
     smoothProgress,
-    [0.5, 0.75, 1],
+    [0.9, 0.95, 1],
     [
       'polygon(0% 100%, 0% 100%, 0% 100%)',
       'polygon(0% 100%, 100% 0%, 100% 100%)',
@@ -76,14 +82,16 @@ export default function Component() {
   }
 
   const watches = [
-    { name: 'PROMASTER MARINE', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER SKY', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER LAND', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER TOUGH', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER MECHANICAL DIVER', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER AQUALAND', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER ALTICHRON', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'PROMASTER SKYHAWK', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'NENE KAWASAKI', image: 'image/kawasaki.png?height=400&width=400' },
+    { name: 'AMI OKUZUMI', image: 'image/ami.jpeg?height=400&width=400' },
+    { name: 'ANNA TOMINAGA', image: 'image/anna.jpeg?height=400&width=400' },
+    { name: 'AOI SUZUKI', image: 'image/aoi.jpeg?height=400&width=400' },
+    { name: 'NOKIHA YAMAGAMI', image: 'image/nokiha.jpeg?height=400&width=400' },
+    { name: 'SOTA ASADA', image: 'image/sota.jpeg?height=400&width=400' },
+    { name: 'YUTO WADA', image: 'image/yuto.jpeg?height=400&width=400' },
+    { name: 'TAIKI SUNADA', image: 'image/taiki.jpeg?height=400&width=400' },
+    { name: 'KAZUMA SAKAKIBARA', image: 'image/kazuma.jpeg?height=400&width=400' },
+    { name: 'KAZU MIYATSU', image: 'image/photo.jpeg?height=400&width=400' },
   ]
 
   return (
@@ -146,6 +154,8 @@ export default function Component() {
         </motion.div>
       </motion.section>
 
+      {/* 4ページ目 */}
+      4ページ目
       <motion.section className="h-screen relative flex items-center overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
@@ -163,8 +173,9 @@ export default function Component() {
               key={index}
               className="flex-shrink-0 w-screen h-screen flex flex-col items-center justify-center"
               initial={{ opacity: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ type: 'spring', stiffness: 50 }}
             >
               <img src={watch.image} alt={watch.name} className="w-[60vmin] h-[60vmin] object-contain mb-8" />
               <h3 className="text-3xl font-bold">{watch.name}</h3>
