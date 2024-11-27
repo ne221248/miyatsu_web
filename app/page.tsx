@@ -7,16 +7,16 @@ import { Button } from '@/components/ui/button'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
+// １ページ目用
 const FlickerText: React.FC<{ text: string; className?: string }> = ({ text, className = "" }) => {
   return (
-    <div className={`flex justify-center gap-2 ${className}`}>
-      {text.split("").map((letter: string, index: number) => (
+    <div className={`flex flex-wrap justify-start gap-2 ${className}`}>
+      {text.split("").map((letter, index) => (
         <motion.span
           key={index}
           initial={{ opacity: 1 }}
           animate={{ opacity: [1, 0.5, 1], scale: [1, 1.1, 1] }}
           transition={{ repeat: Infinity, duration: 0.6, delay: index * 0.1 }}
-          className="text-5xl font-bold"
         >
           {letter}
         </motion.span>
@@ -108,7 +108,7 @@ export default function Component() {
         </div>
       </nav>
 
-      <section className="h-screen relative flex items-center justify-center">
+      <section className="h-screen relative flex items-end justify-start p-8">
         <div className="absolute inset-0 bg-black/40" />
         <div 
           className="absolute inset-0 bg-cover bg-center"
@@ -116,9 +116,9 @@ export default function Component() {
             backgroundImage: "url('/placeholder.svg?height=1080&width=1920')"
           }}
         />
-        <div className="relative text-center z-10">
-          <div className="mb-4 text-sm tracking-wider">MIYATSU PROJECT 2024</div>
-          <FlickerText text="SENSHU-Z" className="text-[8vw] mb-4" />
+        <div className="relative z-10 text-left">
+          <div className="mb-2 text-lg tracking-wider">MIYATSU PROJECT 2024</div>
+          <FlickerText text="SENSHU-Z" className="text-[10vw] font-bold mb-2 leading-none" />
           <div className="text-lg">無限に広がるXの先へ。</div>
         </div>
       </section>
