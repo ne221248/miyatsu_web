@@ -1,9 +1,9 @@
 'use client'
 
-//import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { Globe, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { HybridScroll } from '@/components/hybridScroll' //ページ4用コンポーネント
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 
@@ -24,7 +24,6 @@ const FlickerText: React.FC<{ text: string; className?: string }> = ({ text, cla
     </div>
   );
 };
-
 
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -64,35 +63,10 @@ export default function Component() {
     "/placeholder.svg?height=1080&width=1920"
   ]
   //2ページ目ここまで
-
-  // 縦スクロールが始まるタイミングを遅らせる
-  const clipPath = useTransform(
-    smoothProgress,
-    [0.9, 0.95, 1],
-    [
-      'polygon(0% 100%, 0% 100%, 0% 100%)',
-      'polygon(0% 100%, 100% 0%, 100% 100%)',
-      'polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%)'
-    ]
-  )
-
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   }
-
-  const watches = [
-    { name: 'NENE KAWASAKI', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'AMI OKUZUMI', image: 'image/ami.jpeg?height=400&width=400' },
-    { name: 'ANNA TOMINAGA', image: 'image/anna.jpeg?height=400&width=400' },
-    { name: 'AOI SUZUKI', image: 'image/aoi.jpeg?height=400&width=400' },
-    { name: 'NOKIHA YAMAGAMI', image: 'image/nokiha.jpeg?height=400&width=400' },
-    { name: 'SOTA ASADA', image: 'image/sota.jpeg?height=400&width=400' },
-    { name: 'YUTO WADA', image: 'image/yuto.jpeg?height=400&width=400' },
-    { name: 'TAIKI SUNADA', image: 'image/taiki.jpeg?height=400&width=400' },
-    { name: 'KAZUMA SAKAKIBARA', image: 'image/kazuma.jpeg?height=400&width=400' },
-    { name: 'KAZU MIYATSU', image: 'image/photo.jpeg?height=400&width=400' },
-  ]
 
   return (
     <div ref={containerRef} className="h-[400vh] relative overflow-hidden bg-black text-white">
@@ -156,33 +130,7 @@ export default function Component() {
 
       {/* 4ページ目 */}
       4ページ目
-      <motion.section className="h-screen relative flex items-center overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
-            clipPath
-          }}
-        />
-        <motion.div
-          className="flex items-center space-x-[100vw]"
-          style={{ x: watchTranslateX }}
-        >
-          {watches.map((watch, index) => (
-            <motion.div
-              key={index}
-              className="flex-shrink-0 w-screen h-screen flex flex-col items-center justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 50 }}
-            >
-              <img src={watch.image} alt={watch.name} className="w-[60vmin] h-[60vmin] object-contain mb-8" />
-              <h3 className="text-3xl font-bold">{watch.name}</h3>
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.section>
+      <HybridScroll />
 
       <motion.section className="h-screen relative flex items-center justify-center">
         <div className="text-center">
