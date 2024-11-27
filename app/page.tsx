@@ -1,9 +1,11 @@
 'use client'
 
-import { useRef } from 'react'
+//import { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { Globe, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 
 const FlickerText: React.FC<{ text: string; className?: string }> = ({ text, className = "" }) => {
   return (
@@ -38,6 +40,25 @@ export default function Component() {
   const messageOpacity = useTransform(smoothProgress, [0.2, 0.25, 0.5, 0.55], [0, 1, 1, 0])
 
   const watchTranslateX = useTransform(smoothProgress, [0.5, 1], ['0%', '-800%'])
+
+  //2ページ目で使用する関数
+  const [activeSection, setActiveSection] = useState(0)
+  const sectionRefs = [useRef(null), useRef(null), useRef(null), useRef(null)]
+  
+  const messages = [
+    "First Message: Your Project's Vision",
+    "Second Message: Core Values",
+    "Third Message: Innovation",
+    "Fourth Message: Future Goals"
+  ]
+
+  const backgrounds = [
+    "/placeholder.svg?height=1080&width=1920",
+    "/placeholder.svg?height=1080&width=1920",
+    "/placeholder.svg?height=1080&width=1920",
+    "/placeholder.svg?height=1080&width=1920"
+  ]
+  //2ページ目ここまで
 
   const clipPath = useTransform(
     smoothProgress,
@@ -93,6 +114,11 @@ export default function Component() {
           <div className="text-lg">無限に広がるXの先へ。</div>
         </div>
       </section>
+
+      {/* 2ページ目 */}
+      2ページ目
+      
+
 
       <motion.section className="h-screen relative flex items-center justify-center overflow-hidden">
         <motion.div
