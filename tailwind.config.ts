@@ -62,10 +62,10 @@ const config: Config = {
 		keyframes: {
 			"slide-top": {
 				"0%": {
-					transform: "translateY(0)"
+					transform: "translateY(100px)"
 				},
 				to: {
-					transform: "translateY(-100px)"
+					transform: "translateY(0px)"
 				}
 			}
 		}

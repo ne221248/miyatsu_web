@@ -1,14 +1,19 @@
-'use client'
+"use client";
 
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
-import { Globe, Menu } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { HybridScroll } from '@/components/hybridScroll' //ページ4用コンポーネント
-import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { Globe, Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+// import { FadeInBottom } from "@/components/ui/FadeInBottom";
+import { HybridScroll } from "@/components/hybridScroll"; //ページ4用コンポーネント
+// import HybridScroll from '@/components/hybridScroll'
+import { useRef } from "react";
+// import Image from "next/image";
 
 // １ページ目テキストエフェクト
-const FlickerText: React.FC<{ text: string; className?: string }> = ({ text, className = "" }) => {
+const FlickerText: React.FC<{ text: string; className?: string }> = ({
+  text,
+  className = "",
+}) => {
   return (
     <div className={`flex flex-wrap justify-start gap-2 ${className}`}>
       {text.split("").map((letter, index) => (
@@ -27,28 +32,40 @@ const FlickerText: React.FC<{ text: string; className?: string }> = ({ text, cla
 
 // 2ページ目のテキスト内容
 const messages = [
-  { title: 'Message 1', number: '01', text: 'This is the first message.', image: 'image1.jpg' },
-  { title: 'Message 2', number: '02', text: 'This is the second message.', image: 'image2.jpg' },
-  { title: 'Message 3', number: '03', text: 'This is the third message.', image: 'image3.jpg' },
-  { title: 'Message 4', number: '04', text: 'This is the fourth message.', image: 'image4.jpg' }
+  {
+    title: "Message 1",
+    number: "01",
+    text: "This is the first message.",
+    image: "image1.jpg",
+  },
+  {
+    title: "Message 2",
+    number: "02",
+    text: "This is the second message.",
+    image: "image2.jpg",
+  },
+  {
+    title: "Message 3",
+    number: "03",
+    text: "This is the third message.",
+    image: "image3.jpg",
+  },
+  {
+    title: "Message 4",
+    number: "04",
+    text: "This is the fourth message.",
+    image: "image4.jpg",
+  },
 ];
 
-//2ページ目で使用する画像
-// const images = [
-//   'image/kawasaki.png?height=400&width=400',
-//   'image/nokiha.png?height=400&width=400',
-//   'image/aoi.png?height=400&width=400',
-//   'image/souta.png?height=400&width=400',
-//   'image/kazuma.png?height=400&width=400'
-// ];
-
+//4ページ目
 
 export default function Component() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end']
-  })
+    offset: ["start start", "end end"],
+  });
 
   //スクロールに対するアニメーションの制御関数
   const smoothProgress = useSpring(scrollYProgress, {
@@ -56,48 +73,39 @@ export default function Component() {
     stiffness: 50,
     damping: 20,
     restDelta: 0.001,
-  })
+  });
 
   // //2ページ目のスクロールアニメーションの制御関数:山上
   const messageTransforms = messages.map((_, index) => ({
-    x: useTransform(smoothProgress, [index * 0.05, (index + 1) * 0.1], ['-100%', '0%']),
-    y: useTransform(smoothProgress, [index * 0.05, (index + 1) * 0.1], ['0%', '0%']),
-    opacity: useTransform(smoothProgress, [index * 0.05, index * 0.1, (index + 1) * 0.1, (index + 1) * 0.125], [0, 1, 1, 0]),
-    scale: useTransform(smoothProgress, [index * 0.05, (index + 1) * 0.1], [0.8, 1])
-  }))
-  // 縦スクロールが始まるタイミングを遅らせる
-  const clipPath = useTransform(
-    smoothProgress,
-    [0.9, 0.95, 1],
-    [
-      'polygon(0% 100%, 0% 100%, 0% 100%)',
-      'polygon(0% 100%, 100% 0%, 100% 100%)',
-      'polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%)'
-    ]
-  )
-  
-  const watchTranslateX = useTransform(smoothProgress, [0.5, 1], ['0%', '-800%'])
+    x: useTransform(
+      smoothProgress,
+      [index * 0.05, (index + 1) * 0.1],
+      ["-100%", "0%"]
+    ),
+    y: useTransform(
+      smoothProgress,
+      [index * 0.05, (index + 1) * 0.1],
+      ["0%", "0%"]
+    ),
+    opacity: useTransform(
+      smoothProgress,
+      [index * 0.05, index * 0.1, (index + 1) * 0.1, (index + 1) * 0.125],
+      [0, 1, 1, 0]
+    ),
+    scale: useTransform(
+      smoothProgress,
+      [index * 0.05, (index + 1) * 0.1],
+      [0.8, 1]
+    ),
+  }));
 
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  }
-
-  const watches = [
-    { name: 'NENE KAWASAKI', image: 'image/kawasaki.png?height=400&width=400' },
-    { name: 'AMI OKUZUMI', image: 'image/ami.jpeg?height=400&width=400' },
-    { name: 'ANNA TOMINAGA', image: 'image/anna.jpeg?height=400&width=400' },
-    { name: 'AOI SUZUKI', image: 'image/aoi.jpeg?height=400&width=400' },
-    { name: 'NOKIHA YAMAGAMI', image: 'image/nokiha.jpeg?height=400&width=400' },
-    { name: 'SOTA ASADA', image: 'image/sota.jpeg?height=400&width=400' },
-    { name: 'YUTO WADA', image: 'image/yuto.jpeg?height=400&width=400' },
-    { name: 'TAIKI SUNADA', image: 'image/taiki.jpeg?height=400&width=400' },
-    { name: 'KAZUMA SAKAKIBARA', image: 'image/kazuma.jpeg?height=400&width=400' },
-    { name: 'KAZU MIYATSU', image: 'image/photo.jpeg?height=400&width=400' },
-  ]
+  // 4ページ目のアニメーション制御関数
 
   return (
-    <div ref={containerRef} className="h-[1000vh] relative overflow-hidden bg-black text-white">
+    <div
+      ref={containerRef}
+      className="h-[1000vh] relative overflow-hidden bg-black text-white"
+    >
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 mix-blend-difference">
         <span className="text-sm font-medium">MIYATSU PROJECT WEB SITE</span>
         <div className="flex items-center gap-4">
@@ -109,25 +117,28 @@ export default function Component() {
           </Button>
         </div>
       </nav>
-
       <section className="h-screen relative flex items-end justify-start p-8">
         <div className="absolute inset-0 bg-black/40" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/placeholder.svg?height=1080&width=1920')"
+            backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
           }}
         />
         <div className="relative z-10 text-left">
-          <div className="mb-2 text-lg tracking-wider">MIYATSU PROJECT 2024</div>
-          <FlickerText text="SENSHU-Z" className="text-[10vw] font-bold mb-2 leading-none" />
+          <div className="mb-2 text-lg tracking-wider">
+            MIYATSU PROJECT 2024
+          </div>
+          <FlickerText
+            text="SENSHU-Z"
+            className="text-[10vw] font-bold mb-2 leading-none"
+          />
           <div className="text-lg">無限に広がるXの先へ。</div>
         </div>
       </section>
-
-   {/* 2ページ目 */}
-     <div className="relative h-[400vh]">
-      {/* 以下の機能は実装中 */}
+      {/* 2ページ目 */}
+      <div className="relative h-[400vh]">
+        {/* 以下の機能は実装中 */}
         {/* {images.map((src, imgIndex) => (
           <motion.img
             key={imgIndex}
@@ -152,7 +163,7 @@ export default function Component() {
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url('${message.image}')`,
-                opacity: messageTransforms[index].opacity
+                opacity: messageTransforms[index].opacity,
               }}
             />
             <motion.div
@@ -160,27 +171,26 @@ export default function Component() {
                 x: messageTransforms[index].x,
                 y: messageTransforms[index].y,
                 opacity: messageTransforms[index].opacity,
-                scale: messageTransforms[index].scale
+                scale: messageTransforms[index].scale,
               }}
               className="relative flex flex-col items-center justify-center text-center"
             >
               <h2 className="text-6xl font-bold mb-8">{message.title}</h2>
               <p className="text-2xl mb-2">{message.number}</p>
-              <p className="text-2xl mb-2 whitespace-pre-line">{message.text}</p>
+              <p className="text-2xl mb-2 whitespace-pre-line">
+                {message.text}
+              </p>
             </motion.div>
           </motion.section>
         ))}
       </div>
-
-       {/* 2ページ目ここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */}
-
-
+      {/* 2ページ目ここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */}
       {/* 3ページ目始まり */}
       3ページ目
       <motion.section className="h-screen relative flex items-center justify-center">
         <div
           className="absolute inset-0 flex items-center justify-center"
-          style={{ top: '25%' }}
+          style={{ top: "25%" }}
         >
           {/* 下に動画のリンクを挿入する */}
           <a href="https://shiratama-university.notion.site/620c677db5cd460cb92b0f9ed8d4275f">
@@ -198,34 +208,43 @@ export default function Component() {
           </a>
         </div>
       </motion.section>
-
-
-      <section id="sec-movie" className="appsec on_anim current on_anim_hover flex justify-between items-center">
-        <div className="relative z-10 text-left">
-          <div className="mb-2 text-lg tracking-wider">MIYATSU PROJECT 2024</div>
-          <FlickerText text="PROJECT MOVIE" className="text-[6vw] font-bold mb-2 leading-none" />
-          <div className="text-lg">プロジェクトムービー</div>
-        </div>
-          <div className="relative z-10 text-center text-2xl font-semibold">
-          <span>宮津プロジェクトの活動を動画にまとめました!!!!</span>
+      <section className="h-screen relative flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/40" />
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
+          }}
+        />
+        <div className="relative text-center z-10">
+          <div className="mb-2 text-sm tracking-wider">
+            MIYATSU PROJECT 2024
           </div>
+          <FlickerText
+            text="THE BEST MEMBERS"
+            className="text-[6vw] font-bold mb-2"
+          />
+          <div className="text-lg">最高の仲間たち。</div>
+        </div>
       </section>
       {/* 3ページ目終わり */}
-
-
       {/* 4ページ目 */}
-      <HybridScroll />
-
+      <HybridScroll/>
+      {/* 5ページ目 */}
       <motion.section className="h-screen relative flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-8">CHALLENGE THE IMPOSSIBLE</h2>
-          <FlickerText text="FINAL PRESENTATION" className="text-[5vw] font-bold" />
+          <FlickerText
+            text="FINAL PRESENTATION"
+            className="text-[5vw] font-bold"
+          />
         </div>
       </motion.section>
-
       {/* Page 5 */}
       <motion.section className="h-screen flex flex-col items-center justify-center bg-black">
-        <h2 className="text-4xl font-bold text-white mb-4">Explore the Active Log</h2>
+        <h2 className="text-4xl font-bold text-white mb-4">
+          Explore the Active Log
+        </h2>
         <iframe
           src="https://docs.craft.do/editor/d/df78fd0b-f354-f962-1d12-144f3b47b3b9/439C1F1E-A738-4A91-81AE-4CF64611FE83?s=W6NcAP3oXvgQ6sRHVTGgo9NTS6iJx66KbpZUh6uBGdhi"
           title="Craft Embed"
