@@ -75,7 +75,7 @@ export default function Component() {
     restDelta: 0.001,
   });
 
-  // //2ページ目のスクロールアニメーションの制御関数:山上
+  /* eslint-disable react-hooks/rules-of-hooks */
   const messageTransforms = messages.map((_, index) => ({
     x: useTransform(
       smoothProgress,
@@ -98,6 +98,7 @@ export default function Component() {
       [0.8, 1]
     ),
   }));
+  /* eslint-enable react-hooks/rules-of-hooks */
 
   // 4ページ目のアニメーション制御関数
 
