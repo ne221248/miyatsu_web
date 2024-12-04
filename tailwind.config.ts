@@ -55,9 +55,23 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+		animation: {
+			"slide-top": "slide-top 1s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both"
+		},
+		keyframes: {
+			"slide-top": {
+				"0%": {
+					transform: "translateY(0)"
+				},
+				to: {
+					transform: "translateY(-100px)"
+				}
+			}
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
 };
+
 export default config;
