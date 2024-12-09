@@ -213,7 +213,6 @@ export default function Component() {
       </div>
       {/* 2ページ目ここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */}
       {/* 3ページ目始まり */}
-      3ページ目
       <motion.section className="h-screen relative flex items-center justify-center">
         <div
           className="absolute inset-0 flex items-center justify-center"
@@ -225,12 +224,12 @@ export default function Component() {
               className="w-[35vw] h-[35vw] rounded-full border-4 border-white flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
             >
-              <motion.div
+                <motion.div
                 className="w-[32vw] h-[32vw] rounded-full border-4 border-white flex items-center justify-center"
                 whileHover={{ scale: 1.1 }}
-              >
-                <span className="text-white text-2xl">PLAY MOVIE▶︎</span>
-              </motion.div>
+                >
+                <span className={`text-white ${isMobile ? 'text-sm' : 'text-2xl'}`}>PLAY MOVIE▶︎</span>
+                </motion.div>
             </motion.div>
           </a>
         </div>
