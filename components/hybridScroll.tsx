@@ -178,7 +178,7 @@ const styles = {
     scroll-behavior: smooth;
   `,
   container: css`
-    width: 300vw;
+    width: 250vw;
     height: 100%;
     display: flex;
   `,
