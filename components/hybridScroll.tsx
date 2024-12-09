@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { css } from "@emotion/css";
 import { motion, useInView } from "framer-motion"; // useInView をインポート
 import { isMobile } from "react-device-detect";
@@ -8,8 +8,10 @@ const HybridScroll: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null); // アニメーションさせたい要素の ref
 
   const inView = useInView(containerRef, { once: true }); // 要素が表示されたかを監視
+  const [isClientMobile, setIsClientMobile] = useState(false); //スマホ判定関数
 
   useEffect(() => {
+    setIsClientMobile(isMobile);
     if (screenRef.current) {
       screenRef.current.onwheel = (ev) => {
         ev.preventDefault();
@@ -37,131 +39,131 @@ const HybridScroll: React.FC = () => {
 
   // 'animate-slide-top' クラスを条件付きで適用
   const containerClassName = `${
-    isMobile ? mobileStyles.container : styles.container
+    isClientMobile ? mobileStyles.container : styles.container
   } ${inView ? "animate-slide-top" : ""}`;
 
   return (
     <div
       ref={screenRef}
-      className={`${isMobile ? mobileStyles.screen : styles.screen}`}
+      className={`${isClientMobile ? mobileStyles.screen : styles.screen}`}
     >
       <motion.div
-        ref={containerRef} // ref を設定
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"} // inView に基づいてアニメーションを制御
-        variants={fadeIn}
-        className={containerClassName} // 修正したクラス名を適用
+      ref={containerRef} // ref を設定
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"} // inView に基づいてアニメーションを制御
+      variants={fadeIn}
+      className={containerClassName} // 修正したクラス名を適用
       >
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/kawasaki.png")
-              : styles.page("image/kawasaki.png")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            NENE KAWASAKI
-          </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/kawasaki.png")
+          : styles.page("image/kawasaki.png")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        NENE KAWASAKI
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/ami.jpeg")
-              : styles.page("image/ami.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            AMI OKUZIMI
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/ami.jpeg")
+          : styles.page("image/ami.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        AMI OKUZIMI
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/anna.jpeg")
-              : styles.page("image/anna.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            ANNA TOMINAGA
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/anna.jpeg")
+          : styles.page("image/anna.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        ANNA TOMINAGA
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/aoi.jpeg")
-              : styles.page("image/aoi.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            AOI SUZUKI
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/aoi.jpeg")
+          : styles.page("image/aoi.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        AOI SUZUKI
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/nokiha.jpeg")
-              : styles.page("image/nokiha.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            NOKIHA YAMAGAMI
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/nokiha.jpeg")
+          : styles.page("image/nokiha.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        NOKIHA YAMAGAMI
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/sota.jpeg")
-              : styles.page("image/sota.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            SOTA ASADA
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/sota.jpeg")
+          : styles.page("image/sota.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        SOTA ASADA
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/yuto.jpeg")
-              : styles.page("image/yuto.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            YUTO WADA
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/yuto.jpeg")
+          : styles.page("image/yuto.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        YUTO WADA
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/kazuma.jpeg")
-              : styles.page("image/kazuma.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            KAZUMA SAKAKIBARA
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/kazuma.jpeg")
+          : styles.page("image/kazuma.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        KAZUMA SAKAKIBARA
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/taiki.jpeg")
-              : styles.page("image/taiki.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            TAIKI SUNADA
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/taiki.jpeg")
+          : styles.page("image/taiki.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        TAIKI SUNADA
         </div>
-        <div
-          className={
-            isMobile
-              ? mobileStyles.page("image/photo.jpeg")
-              : styles.page("image/photo.jpeg")
-          }
-        >
-          <div className={isMobile ? mobileStyles.text : styles.text}>
-            KAZUHIRO MIYASTU
-          </div>
+      </div>
+      <div
+        className={
+        isClientMobile
+          ? mobileStyles.page("image/photo.jpeg")
+          : styles.page("image/photo.jpeg")
+        }
+      >
+        <div className={isClientMobile ? mobileStyles.text : styles.text}>
+        KAZUHIRO MIYASTU
         </div>
+      </div>
       </motion.div>
     </div>
   );
