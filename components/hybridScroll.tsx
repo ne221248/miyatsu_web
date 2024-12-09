@@ -212,7 +212,7 @@ const mobileStyles = {
   `,
   container: css`
     width: 300%;
-    height: 100%;
+    height: 70%;
     display: flex;
   `,
   page: (bgImage: string) => css`

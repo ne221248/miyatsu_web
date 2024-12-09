@@ -10,7 +10,7 @@ import { useRef } from "react";
 // import Image from "next/image";
 import { isMobile } from "react-device-detect";
 
-// １ページ目テキストエフェクト
+// テキストエフェクト
 const FlickerText: React.FC<{ text: string; className?: string }> = ({
   text,
   className = "",
@@ -259,10 +259,10 @@ export default function Component() {
       {/* 5ページ目 */}
       <motion.section className="h-screen relative flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-4xl font-bold mb-8">CHALLENGE THE IMPOSSIBLE</h2>
+          <h2 className="text-3xl font-bold mb-8">CHALLENGE THE IMPOSSIBLE</h2>
           <FlickerText
             text="FINAL PRESENTATION"
-            className="text-[5vw] font-bold"
+            className="text-[4vw] font-bold justify-center"
           />
         </div>
       </motion.section>
