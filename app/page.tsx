@@ -6,6 +6,7 @@ import { isMobile } from "react-device-detect";
 import { ActiveLog } from "@/components/active-log";
 import { Title } from "@/components/title";
 import { HybridScroll } from "@/components/hybridScroll"; //ページ4用コンポーネント
+import { LogoLink } from "@/components/logo-link";
 import { Footer } from "@/components/shared/footer"; //フッター用コンポーネント
 import { Header } from "@/components/shared/header"; //ヘッダー用コンポーネント
 
@@ -227,6 +228,9 @@ export default function Component() {
       </motion.section>
       {/* 活動記録 */}
       <ActiveLog/>  
+
+      {/* instagram & github */}
+      <LogoLink />
 
       {/* フッター */}
       <Footer />
