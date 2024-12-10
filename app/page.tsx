@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { Globe, Menu } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { ActiveLog } from "@/components/active-log";
