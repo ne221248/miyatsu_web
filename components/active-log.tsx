@@ -20,13 +20,13 @@ const ActiveLog: React.FC = () => {
                         Explore the Active Log
                     </h2>
                     <div className="relative w-5/6 h-4/5 rounded-lg overflow-hidden">
-                        {/* eslint-disable react-hooks/rules-of-hooks */}
+                        {/* eslint-disable @typescript-eslint/no-unused-vars */}
                         <img
                             src="./bg/active-log.png"
                             alt="Active Log"
                             className="w-full h-full object-cover rounded-lg"
                         />
-                        {/* eslint-enable react-hooks/rules-of-hooks */}
+                        {/* eslint-disable @typescript-eslint/no-unused-vars */}
                         <a
                             href="https://docs.craft.do/editor/d/df78fd0b-f354-f962-1d12-144f3b47b3b9/439C1F1E-A738-4A91-81AE-4CF64611FE83?s=W6NcAP3oXvgQ6sRHVTGgo9NTS6iJx66KbpZUh6uBGdhi"
                             target="_blank"

@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { isMobile } from "react-device-detect";
 
 export const LogoLink: React.FC = () => {
 
@@ -44,13 +43,13 @@ export const LogoLink: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block mx-7"
                         >
-                            {/* eslint-disable react-hooks/rules-of-hooks  */}
+                            {/* eslint-disable @typescript-eslint/no-unused-vars */}
                             <img
                                 src="/bg/github-mark-white.svg"
                                 alt="GitHub"
                                 className="rounded object-contain m-auto"
                             />
-                            {/* eslint-enable react-hooks/rules-of-hooks  */}
+                            {/* eslint-disable @typescript-eslint/no-unused-vars  */}
                             <p className="font-serif mt-4">Git Hub</p>
                         </a>
                         <a
@@ -65,7 +64,7 @@ export const LogoLink: React.FC = () => {
                                 alt="Instagram"
                                 className="rounded object-contain size-24 m-auto"
                             />
-                            {/* eslint-enable react-hooks/rules-of-hooks  */}
+                            {/* eslint-disable @typescript-eslint/no-unused-vars  */}
                             <p className="font-serif mt-4">Instagram</p>
                         </a>
                     </div>
