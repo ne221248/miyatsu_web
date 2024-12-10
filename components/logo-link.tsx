@@ -4,11 +4,11 @@ import { isMobile } from "react-device-detect";
 
 export const LogoLink: React.FC = () => {
 
-    const [isClientMobile, setIsClientMobile] = useState(false); //スマホ判定関数
+    // const [isClientMobile, setIsClientMobile] = useState(false); //スマホ判定関数
 
-    useEffect(() => {
-        setIsClientMobile(isMobile);
-    }, []);
+    // useEffect(() => {
+    //     setIsClientMobile(isMobile);
+    // }, []);
 
     const screenRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null); // アニメーションさせたい要素の ref
@@ -44,11 +44,13 @@ export const LogoLink: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block mx-7"
                         >
+                            {/* eslint-disable react-hooks/rules-of-hooks  */}
                             <img
                                 src="/bg/github-mark-white.svg"
                                 alt="GitHub"
                                 className="rounded object-contain m-auto"
                             />
+                            {/* eslint-enable react-hooks/rules-of-hooks  */}
                             <p className="font-serif mt-4">Git Hub</p>
                         </a>
                         <a
@@ -57,11 +59,13 @@ export const LogoLink: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block mx-7"
                         >
+                            {/* eslint-disable react-hooks/rules-of-hooks  */}
                             <img
                                 src="/bg/instagram-2022.svg"
                                 alt="Instagram"
                                 className="rounded object-contain size-24 m-auto"
                             />
+                            {/* eslint-enable react-hooks/rules-of-hooks  */}
                             <p className="font-serif mt-4">Instagram</p>
                         </a>
                     </div>
