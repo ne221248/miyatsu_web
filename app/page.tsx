@@ -5,7 +5,6 @@ import { Globe, Menu } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { ActiveLog } from "@/components/active-log";
-// import { Button } from "@/components/ui/button";
 import { Title } from "@/components/title";
 import { HybridScroll } from "@/components/hybridScroll"; //ページ4用コンポーネント
 import { Footer } from "@/components/shared/footer"; //フッター用コンポーネント
