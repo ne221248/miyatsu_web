@@ -2,12 +2,14 @@
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Globe, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-// import { FadeInBottom } from "@/components/ui/FadeInBottom";
-import { HybridScroll } from "@/components/hybridScroll"; //ページ4用コンポーネント
 import { useRef, useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import { ActiveLog } from "@/components/active-log";
+// import { Button } from "@/components/ui/button";
+import { Title } from "@/components/title";
+import { HybridScroll } from "@/components/hybridScroll"; //ページ4用コンポーネント
+import { Footer } from "@/components/shared/footer"; //フッター用コンポーネント
+import { Header } from "@/components/shared/header"; //ヘッダー用コンポーネント
 
 // テキストエフェクト
 const FlickerText: React.FC<{ text: string; className?: string }> = ({
@@ -113,62 +115,13 @@ export default function Component() {
   return (
     <div
       ref={containerRef}
-      className="h-[1000vh] relative overflow-hidden bg-black text-white"
+      className="flex flex-col min-h-screen bg-black text-white"
     >
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 mix-blend-difference">
-        <span className="text-sm font-medium">MIYATSU PROJECT WEB SITE</span>
-        <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon">
-            <Globe className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Menu className="h-5 w-5" />
-          </Button>
-        </div>
-      </nav>
+      {/* ヘッダー */}
+      <Header />
       
       {/* 1ページ目 */}
-      {isClientMobile ? (  //スマホ表示画面
-        <section className="h-screen relative flex justify-start p-8">
-          <div className="absolute inset-0 bg-black/40" />
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
-            }}
-          />
-          <div className="relative z-10 text-left">
-            <div className="mb-2 text-lg tracking-wider mt-96">
-              MIYATSU PROJECT 2024
-            </div>
-            <FlickerText
-              text="SENSHU-Z"
-              className="text-[10vw] font-bold mb-2 leading-none"
-            />
-            <div className="text-lg">無限に広がるXの先へ。</div>
-          </div>
-        </section>
-      ) : ( //pc表示画面
-        <section className="h-screen relative flex items-end justify-start p-8">
-          <div className="absolute inset-0 bg-black/40" />
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
-            }}
-          />
-          <div className="relative z-10 text-left">
-            <div className="mb-2 text-lg tracking-wider">
-              MIYATSU PROJECT 2024
-            </div>
-            <FlickerText
-              text="SENSHU-Z"
-              className="text-[10vw] font-bold mb-2 leading-none"
-            />
-            <div className="text-lg">無限に広がるXの先へ。</div>
-          </div>
-        </section>
-      )}
+      <Title />
 
       {/* 2ページ目 */}
       <div className="relative h-[400vh]">
@@ -260,9 +213,10 @@ export default function Component() {
           <div className="text-lg">最高の仲間たち。</div>
         </div>
       </section>
-      {/* 3ページ目終わり */}
+
       {/* 4ページ目 */}
       <HybridScroll/>
+
       {/* 5ページ目 */}
       <motion.section className="h-screen relative flex items-center justify-center">
         <div className="text-center">
@@ -274,10 +228,11 @@ export default function Component() {
         </div>
       </motion.section>
       {/* 活動記録 */}
-      <ActiveLog/>
+      <ActiveLog/>  
 
       {/* フッター */}
-      
+      <Footer />
     </div>
+    
   );
 }

@@ -57,7 +57,8 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
 		animation: {
-			"slide-top": "slide-top 1s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both"
+			"slide-top": "slide-top 1s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both",
+			"slide-right": "slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
 		},
 		keyframes: {
 			"slide-top": {
@@ -67,7 +68,15 @@ const config: Config = {
 				to: {
 					transform: "translateY(0px)"
 				}
-			}
+			},
+			"slide-right": {
+                "0%": {
+                    transform: "translateX(100)"
+                },
+                to: {
+                    transform: "translateX(0px)"
+				}
+            }
 		}
   	}
   },
