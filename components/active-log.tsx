@@ -13,7 +13,7 @@ const ActiveLog: React.FC = () => {
     }, []);
 
     return (
-        <>
+        <div>
             {isClientMobile ? ( //スマホ表示画面
                 <section className="h-screen flex flex-col items-center justify-center bg-black">
                     <h2 className="text-2xl font-bold text-white mb-4">
@@ -36,18 +36,21 @@ const ActiveLog: React.FC = () => {
                     </div>
                 </section>
             ) : ( //pc表示画面
-                <motion.section className="h-screen flex flex-col items-center justify-center bg-black">
-                    <h2 className="text-4xl font-bold text-white mb-4">
-                        Explore the Active Log
-                    </h2>
-                    <iframe
-                        src="https://docs.craft.do/editor/d/df78fd0b-f354-f962-1d12-144f3b47b3b9/439C1F1E-A738-4A91-81AE-4CF64611FE83?s=W6NcAP3oXvgQ6sRHVTGgo9NTS6iJx66KbpZUh6uBGdhi"
-                        title="Craft Embed"
-                        className="w-[90%] h-[70vh] border-2 border-white rounded-lg md:w-[70%] md:h-[100vh]"
-                    ></iframe>
-                </motion.section>
+                <div>
+                    <motion.section className="h-screen flex flex-col items-center justify-center bg-black">
+                        <h2 className="text-4xl font-bold text-white mb-4">
+                            Explore the Active Log
+                        </h2>
+                        <iframe
+                            src="https://docs.craft.do/editor/d/df78fd0b-f354-f962-1d12-144f3b47b3b9/439C1F1E-A738-4A91-81AE-4CF64611FE83?s=W6NcAP3oXvgQ6sRHVTGgo9NTS6iJx66KbpZUh6uBGdhi"
+                            title="Craft Embed"
+                            className="w-[90%] h-[70vh] border-2 border-white rounded-lg md:w-[70%] md:h-[100vh]"
+                        ></iframe>
+                    </motion.section>
+                    <div className="mt-8"></div>
+                </div>
             )}
-        </>
+        </div>
     );
 };
 
