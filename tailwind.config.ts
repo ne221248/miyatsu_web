@@ -58,7 +58,8 @@ const config: Config = {
   		},
 		animation: {
 			"slide-top": "slide-top 1s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both",
-			"slide-right": "slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both"
+			"slide-right": "slide-right 2s cubic-bezier(0.250, 0.460, 0.450, 0.940)   both",
+			"slide-top-logo": "slide-top 3s cubic-bezier(0.470, 0.000, 0.745, 0.715)   both",
 		},
 		keyframes: {
 			"slide-top": {
@@ -76,7 +77,15 @@ const config: Config = {
                 to: {
                     transform: "translateX(0px)"
 				}
-            }
+            },
+			"slide-top-logo": {
+				"0%": {
+					transform: "translateY(100px)"
+				},
+				to: {
+					transform: "translateY(0px)"
+				}
+			},
 		}
   	}
   },

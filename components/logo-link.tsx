@@ -19,7 +19,7 @@ export const LogoLink: React.FC = () => {
       };
     
     // 'animate-slide-top' クラスを条件付きで適用
-    const logoClassName = `${inView ? "animate-slide-top" : ""}`;
+    const logoClassName = `${inView ? "animate-slide-top-logo" : ""}`;
 
     return (
         <div

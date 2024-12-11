@@ -9,6 +9,7 @@ import { HybridScroll } from "@/components/hybridScroll"; //ページ4用コン�
 import { LogoLink } from "@/components/logo-link";
 import { Footer } from "@/components/shared/footer"; //フッター用コンポーネント
 import { Header } from "@/components/shared/header"; //ヘッダー用コンポーネント
+import LogoAnimation from "@/components/logo-animation";
 
 // テキストエフェクト
 const FlickerText: React.FC<{ text: string; className?: string }> = ({
@@ -112,10 +113,14 @@ export default function Component() {
   }, []);
 
   return (
+    
     <div
       ref={containerRef}
-      className="flex flex-col min-h-screen bg-black text-white"
-    >
+      className="flex flex-col min-h-screen bg-black text-white absolute z-0"
+    > 
+    {/* Add LogoAnimation to the background */}
+    <LogoAnimation />
+
       {/* ヘッダー */}
       <Header />
       
@@ -235,6 +240,5 @@ export default function Component() {
       {/* フッター */}
       <Footer />
     </div>
-    
   );
 }

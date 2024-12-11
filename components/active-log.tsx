@@ -15,7 +15,7 @@ const ActiveLog: React.FC = () => {
     return (
         <div>
             {isClientMobile ? ( //スマホ表示画面
-                <section className="h-screen flex flex-col items-center justify-center bg-black">
+                <section className="h-screen flex flex-col items-center justify-center">
                     <h2 className="text-2xl font-bold text-white mb-4">
                         Explore the Active Log
                     </h2>
@@ -39,7 +39,7 @@ const ActiveLog: React.FC = () => {
                 </section>
             ) : ( //pc表示画面
                 <div>
-                    <motion.section className="h-screen flex flex-col items-center justify-center bg-black">
+                    <motion.section className="h-screen flex flex-col items-center justify-center">
                         <h2 className="text-4xl font-bold text-white mb-4">
                             Explore the Active Log
                         </h2>
