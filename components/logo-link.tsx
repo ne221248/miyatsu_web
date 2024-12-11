@@ -15,7 +15,7 @@ export const LogoLink: React.FC = () => {
 
     const fadeIn = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 2 } },
+        visible: { opacity: 1, transition: { duration: 4 } },
       };
     
     // 'animate-slide-top' クラスを条件付きで適用
