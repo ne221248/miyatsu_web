@@ -34,13 +34,13 @@ const TitleText: React.FC = () => {
         <div>
             {isClientMobile ? (  //スマホ表示画面
                 <section className="h-screen relative flex justify-start p-8">
-                <div className="absolute inset-0 bg-black/40" />
-                <div
+                {/* <div className="absolute inset-0 bg-black/40" /> */}
+                {/* <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
                     backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
                     }}
-                />
+                /> */}
                 <div className="relative z-10 text-left animate-slide-right">
                     <div className="mb-2 text-lg tracking-wider mt-96">
                     MIYATSU PROJECT 2024
@@ -54,13 +54,13 @@ const TitleText: React.FC = () => {
                 </section>
             ) : ( //pc表示画面
                 <section className="h-screen relative flex items-end justify-start p-8">
-                <div className="absolute inset-0 bg-black/40" />
+                {/* <div className="absolute inset-0 bg-black/40" />
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
                     backgroundImage: "url('/placeholder.svg?height=1080&width=1920')",
                     }}
-                />
+                /> */}
                 <div className="relative z-10 text-left ">
                     <div className="mb-2 text-lg tracking-wider">
                     MIYATSU PROJECT 2024
