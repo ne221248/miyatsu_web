@@ -125,8 +125,8 @@ export default function Component() {
       ref={containerRef}
       className="flex flex-col min-h-screen bg-black text-white absolute z-0"
     > 
-    {/* Add LogoAnimation to the background */}
-    <LogoAnimation />
+      {/* LogoAnimation to the background */}
+      <LogoAnimation />
 
       {/* ヘッダー */}
       <Header />
@@ -196,7 +196,7 @@ export default function Component() {
         </div>
       </motion.section>
       <section className="h-screen relative flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0" />
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
