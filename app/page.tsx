@@ -40,7 +40,7 @@ const messages = [
   },
   {
     title: "新しい交流の場",
-    text: "専修Zは専大生なら誰でも利用可能！学部やキャンパスにとどまらず、学内であれば誰とでも交流のチャンスがあります"
+    text: "専修Zは専大生なら誰でも利用可能！学部やキャンパスを超えて、学内であれば誰とでも交流のチャンスがあります"
   },
   {
     title: "AIで専修大学の『今』がわかる！",
@@ -125,8 +125,8 @@ export default function Component() {
       ref={containerRef}
       className="flex flex-col min-h-screen bg-black text-white absolute z-0"
     > 
-      {/* LogoAnimation to the background */}
-      <LogoAnimation />
+    {/* Add LogoAnimation to the background */}
+    <LogoAnimation />
 
       {/* ヘッダー */}
       <Header />
@@ -136,6 +136,7 @@ export default function Component() {
 
       {/* 2ページ目 */}
       <div className="relative h-[400vh]">
+        
         {images.map((img, index) => (
           <motion.img
             key={index}
@@ -143,13 +144,10 @@ export default function Component() {
             src={img.image}
             alt={`Random image ${index}`}
             className="absolute"
-            style={{
-              top: `${img.top}%`,
-              left: `${img.left}%`,
-              width: `${img.width}px`,
-              height: `${img.height}px`,
-              //opacity: 1
-            }}
+            style={isClientMobile?
+              {top: `${img.top}%`,left: `${img.left}%`,width: `${img.width* 0.5}px`,height: `${img.height * 0.5}px`,}:
+              {top: `${img.top}%`,left: `${img.left}%`,width: `${img.width}px`,height: `${img.height}px`,}
+            }
           />
         ))}
         {messages.map((message, index) => (
@@ -166,8 +164,16 @@ export default function Component() {
               }}
               className="relative flex flex-col items-center justify-center text-center max-w-screen-md mx-auto"
             >
-              <h2 className="text-5xl font-bold mb-8">{message.title}</h2>
-              <p className="text-2xl mb-2 whitespace-pre-line">{message.text}</p>
+              <h2 className={isClientMobile ?
+                "text-2xl font-bold mb-8" :
+                "text-5xl font-bold mb-8"}
+              >{message.title}
+              </h2>
+              <p className={isClientMobile?
+                "text-1xl mb-2 whitespace-pre-line" :
+                "text-2xl mb-2 whitespace-pre-line"}
+              >{message.text}
+              </p>
             </motion.div>
           </motion.section>
         ))}
@@ -196,7 +202,7 @@ export default function Component() {
         </div>
       </motion.section>
       <section className="h-screen relative flex items-center justify-center">
-        <div className="absolute inset-0" />
+        <div className="absolute inset-0 bg-black/40" />
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
