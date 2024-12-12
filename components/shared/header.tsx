@@ -21,7 +21,18 @@ export const Header: React.FC = () => {
             block: "center",
           });
         }
-      };
+    };
+
+    const handleScrollAbout = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+        e.preventDefault();
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+    };
     
 
     return (
@@ -69,7 +80,7 @@ export const Header: React.FC = () => {
 
                     <ul className="flex flex-col items-end p-4">
                         <li className="border-b border-gray-700 w-full">
-                            <a href="#about" className="block px-8 py-2 my-4 hover:bg-gray-600 rounded" onClick={(e) => handleScroll(e, "about")}>
+                            <a href="#about" className="block px-8 py-2 my-4 hover:bg-gray-600 rounded" onClick={(e) => handleScrollAbout(e, "about")}>
                                 About
                             </a>
                         </li>

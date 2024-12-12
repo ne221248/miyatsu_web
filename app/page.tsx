@@ -136,7 +136,8 @@ export default function Component() {
       <Title />
 
       {/* 2ページ目 */}
-      <div className="relative h-[400vh]" id="about">
+      <div id="about"></div>
+      <div className="relative h-[400vh]">
         
         {images.map((img, index) => (
           <motion.img
