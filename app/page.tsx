@@ -124,6 +124,7 @@ export default function Component() {
     <div
       ref={containerRef}
       className="flex flex-col min-h-screen bg-black text-white absolute z-0"
+      id="top"
     > 
     {/* Add LogoAnimation to the background */}
     <LogoAnimation />
@@ -135,7 +136,7 @@ export default function Component() {
       <Title />
 
       {/* 2ページ目 */}
-      <div className="relative h-[400vh]">
+      <div className="relative h-[400vh]" id="about">
         
         {images.map((img, index) => (
           <motion.img
@@ -180,10 +181,11 @@ export default function Component() {
       </div>
       {/* 2ページ目ここまでーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */}
       {/* 3ページ目始まり */}
-      <motion.section className="h-screen relative flex items-center justify-center">
+      <motion.section className={` ${isClientMobile ? 'h-96' : 'h-screen'} relative flex items-center justify-center`}>
         <div
           className="absolute inset-0 flex items-center justify-center"
           style={{ top: "25%" }}
+          id = "movie"
         >
           {/* 下に動画のリンクを挿入する */}
           <a href="https://shiratama-university.notion.site/620c677db5cd460cb92b0f9ed8d4275f">
@@ -201,8 +203,8 @@ export default function Component() {
           </a>
         </div>
       </motion.section>
-      <section className="h-screen relative flex items-center justify-center">
-        <div className="absolute inset-0 bg-black/40" />
+      <section className={`${isClientMobile ? 'h-80' : 'h-screen'} relative flex items-center justify-center`}>
+        <div className="absolute inset-0" />
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -220,6 +222,7 @@ export default function Component() {
           <div className="text-lg">最高の仲間たち。</div>
         </div>
       </section>
+      <div id="member"></div>
 
       {/* 4ページ目 */}
       <HybridScroll/>
@@ -235,13 +238,16 @@ export default function Component() {
         </div>
       </motion.section>
       {/* 活動記録 */}
+      <div id="ActiveLog">
       <ActiveLog/>  
+      </div>
 
       {/* instagram & github */}
       <LogoLink />
 
       {/* フッター */}
       <Footer />
+      <div id="contact"></div>
     </div>
   );
 }
