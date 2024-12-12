@@ -35,32 +35,37 @@ const FlickerText: React.FC<{ text: string; className?: string }> = ({
 // 2ページ目のテキスト内容
 const messages = [
   {
-    title: "Message 1",
-    number: "01",
-    text: "This is the first message.",
-    image: "image1.jpg",
+    title: "専大限定の『安心』『特別感』",
+    text: "専修Zは専大生のみのクローズドなSNSです。だからこそ、安心して気軽に交流できるのが魅力です。"
   },
   {
-    title: "Message 2",
-    number: "02",
-    text: "This is the second message.",
-    image: "image2.jpg",
+    title: "新しい交流の場",
+    text: "専修Zは専大生なら誰でも利用可能！学部やキャンパスにとどまらず、学内であれば誰とでも交流のチャンスがあります"
   },
   {
-    title: "Message 3",
-    number: "03",
-    text: "This is the third message.",
-    image: "image3.jpg",
+    title: "AIで専修大学の『今』がわかる！",
+    text: "専修ZにはAIが搭載されており、投稿やメッセージからトレンドや学生の関心を分析します。"
   },
   {
-    title: "Message 4",
-    number: "04",
-    text: "This is the fourth message.",
-    image: "image4.jpg",
+    title: "スマホでも手軽に使える便利さ！",
+    text: "専修Zは、ネイティブアプリのように利用可能です。手軽にアクセスできるので、忙しい大学生活の合間にも最適です。"
   },
 ];
 
-//4ページ目
+const images = [
+  { image: "./poster/01.png", top: 2, left: 10, width: 200,height: 200, opacity: 1},
+  { image: "./poster/02.png", top: 30, left: 70, width: 200,height: 200, opacity: 1},
+  { image: "./poster/03.png", top: 50, left: 20, width: 200,height: 200, opacity: 1},
+  { image: "./poster/04.png", top: 78, left: 70, width: 200,height: 200, opacity: 1},
+  { image: "./poster/chat.png", top: 40, left: 70, width: 180,height: 200, opacity: 1},
+  { image: "./poster/chatgpt.png", top: 70, left: 20, width: 180,height: 200, opacity: 1},
+  { image: "./poster/craft.png", top: 20, left: 20, width: 180,height: 200, opacity: 1},
+  { image: "./poster/home.png", top: 5, left: 80, width: 180,height: 200, opacity: 1},
+  { image: "./poster/instagram.png", top: 92, left: 70, width: 180,height: 200, opacity: 1},
+  { image: "./poster/profile.png", top: 42, left: 10, width: 180,height: 200, opacity: 1},
+  { image: "./poster/review.png", top: 66, left: 80, width: 180,height: 200, opacity: 1},
+  { image: "./poster/senshu-z.png", top: 95, left: 20, width: 180, height: 200, opacity: 1},
+];
 
 export default function Component() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -89,16 +94,18 @@ export default function Component() {
       [index * 0.05, (index + 1) * 0.1],
       ["0%", "0%"]
     ),
+    
     opacity: useTransform(
       smoothProgress,
       [index * 0.05, index * 0.1, (index + 1) * 0.1, (index + 1) * 0.125],
       [0, 1, 1, 0]
     ),
+
     scale: useTransform(
       smoothProgress,
       [index * 0.05, (index + 1) * 0.1],
       [0.8, 1]
-    ),
+    )
   }));
   /* eslint-enable react-hooks/rules-of-hooks */
 
@@ -129,34 +136,27 @@ export default function Component() {
 
       {/* 2ページ目 */}
       <div className="relative h-[400vh]">
-        {/* 以下の機能は実装中 */}
-        {/* {images.map((src, imgIndex) => (
+        {images.map((img, index) => (
           <motion.img
-            key={imgIndex}
-            src={src}
-            alt={`Random image ${imgIndex}`}
+            key={index}
+            id={index === 1 ? "second-image" : undefined}
+            src={img.image}
+            alt={`Random image ${index}`}
             className="absolute"
             style={{
-              top: `${Math.random() * 80 + 10}%`,
-              left: `${Math.random() * 80 + 10}%`,
-              width: '200px',
-              height: '200px',
-              opacity: 0.7
+              top: `${img.top}%`,
+              left: `${img.left}%`,
+              width: `${img.width}px`,
+              height: `${img.height}px`,
+              //opacity: 1
             }}
           />
-        ))} */}
+        ))}
         {messages.map((message, index) => (
           <motion.section
             key={index}
             className="h-screen relative flex items-center justify-center overflow-hidden"
           >
-            <motion.div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${message.image}')`,
-                opacity: messageTransforms[index].opacity,
-              }}
-            />
             <motion.div
               style={{
                 x: messageTransforms[index].x,
@@ -164,13 +164,10 @@ export default function Component() {
                 opacity: messageTransforms[index].opacity,
                 scale: messageTransforms[index].scale,
               }}
-              className="relative flex flex-col items-center justify-center text-center"
+              className="relative flex flex-col items-center justify-center text-center max-w-screen-md mx-auto"
             >
-              <h2 className="text-6xl font-bold mb-8">{message.title}</h2>
-              <p className="text-2xl mb-2">{message.number}</p>
-              <p className="text-2xl mb-2 whitespace-pre-line">
-                {message.text}
-              </p>
+              <h2 className="text-5xl font-bold mb-8">{message.title}</h2>
+              <p className="text-2xl mb-2 whitespace-pre-line">{message.text}</p>
             </motion.div>
           </motion.section>
         ))}
