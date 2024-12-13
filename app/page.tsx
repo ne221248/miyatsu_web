@@ -189,7 +189,7 @@ export default function Component() {
           id = "movie"
         >
           {/* 下に動画のリンクを挿入する */}
-          <a href="https://shiratama-university.notion.site/620c677db5cd460cb92b0f9ed8d4275f">
+          <a href="https://youtu.be/WjucAKe-0hI" target="_blank">
             <motion.div
               className="w-[35vw] h-[35vw] rounded-full border-4 border-white flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
@@ -229,15 +229,9 @@ export default function Component() {
       <HybridScroll/>
 
       {/* 5ページ目 */}
-      <motion.section className="h-screen relative flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-8">CHALLENGE THE IMPOSSIBLE</h2>
-          <FlickerText
-            text="FINAL PRESENTATION"
-            className="text-[4vw] font-bold justify-center"
-          />
-        </div>
-      </motion.section>
+      <section className="h-96 relative flex items-center justify-center">
+        
+      </section>
       {/* 活動記録 */}
       <div id="ActiveLog">
       <ActiveLog/>  
